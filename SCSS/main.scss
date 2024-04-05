@@ -1,0 +1,829 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); 
+
+@mixin flexCenter ($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin backImage ($repeat, $position, $size) {
+    background-position: $position; 
+    background-repeat: $repeat; 
+    background-size: $size
+}
+
+$principal-color: #967aa1;
+$secondary-color: #aaa1c8; 
+$light-color: #f6f6f6; 
+$dark-color: #192a51; 
+$golden: #DAA520; 
+$titles-font: "Roboto Mono", monospace; 
+$paragraph-font: "Roboto", sans-serif;
+$quote-font: "Courgette", cursive; 
+
+html {
+    background-color: $light-color;
+}
+
+body {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    header {
+        background-color: $principal-color;
+        width: 100vw;
+        height: fit-content;
+        nav {
+            @include flexCenter(row,space-between,center); 
+            padding: 20px 40px;
+            .web-logo {
+                width: 190px;
+                height: 140px;
+                display: flex;
+                span {
+                    width: 180px;
+                    height: 130px;
+                    background-image: url('../assets/logo_mujeres_rectangular.jpg');
+                    @include backImage(no-repeat,center,cover); 
+                    cursor: pointer;
+                }
+            }
+            div {
+                padding: 0 8px;
+                button {
+                    font-family: $titles-font;
+                    font-weight: bolder;
+                    font-size: 16px;
+                    padding: 4px 8px;
+                    border-radius: 12px;
+                    border: none;
+                    margin-left: 4px;
+                    background-color: $light-color;
+                    a {
+                        text-decoration: none;
+                        color: $dark-color;
+                    }
+                    &:hover {
+                        background-color: $dark-color;
+                        a {
+                            color: $light-color;
+                        }
+                    }
+                }
+                .selected {
+                    background-color: $dark-color;
+                    a {
+                        color: $light-color;
+                    }
+                }
+            }
+            .burger-menu {
+                width: 50px;
+                height: 50px;
+                background-image: url('../assets/icons/burger-menu.png');
+                @include backImage(no-repeat,center,cover); 
+                display: flex;
+            }
+        }  
+    }
+    main {
+        padding: 20px 40px;
+        h1 {
+            font-family: $titles-font;
+            font-size: 30px;
+            font-weight: bolder;
+            text-align: center;
+            margin-bottom: 20px;
+            color: $dark-color;
+        }
+
+        h2 {
+            font-family: $titles-font;
+            font-size: 26px;
+            font-weight: 600;
+            text-align: center;
+            color: $principal-color; 
+        }
+        
+        h3 {
+            font-family: $titles-font;
+            font-size: 24px;
+            font-weight: 500;
+            text-align: left;
+            color: $secondary-color; 
+        }
+
+        ul {
+            li {
+                margin-bottom: 20px; /* Espacio entre cada elemento */
+                line-height: 1.6; /* Altura de línea */
+                font-family: $paragraph-font;
+                font-size: 22px;
+                /* Estilos para los nombres */
+                strong {
+                    font-weight: bold; /* Negrita */
+                    font-family: $paragraph-font;
+                    font-size: 22px;
+                    text-align: left;
+                }
+            }
+        }
+
+        .introduction {
+            p {
+                font-family: $paragraph-font;
+                font-size: 22px;
+                font-weight: 400;
+                text-align: justify;
+            } 
+            img {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        .women-container {
+            margin: 20px 0;
+            ::-webkit-scrollbar {
+                height: 10px;
+                border-radius: 50px;
+            }
+            ::-webkit-scrollbar-track {
+                background-color: lightgray;
+                border-radius: 50px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background-color: $secondary-color ;
+                border-radius: 50px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background-color :green;
+            } 
+            .gallery-container {
+                width: 100%;
+                height: 650px;
+                overflow-x: auto;
+                white-space: nowrap; 
+                @include flexCenter(row,space-between,center);  
+                .gallery-item {
+                    @include flexCenter(column,start,center);
+                    width: 520px ;
+                    height: 550px;
+                    padding: 16px 16px 4px 16px;
+                    margin: 0 20px;
+                    border: 10px solid $golden; // Borde dorado de 10px de ancho
+                    border-radius: 20px; // Borde redondeado
+                    text-decoration: none;
+                    cursor: pointer;
+                    span {
+                        display: flex;
+                        width: 500px;
+                        height: 500px;
+                        @include backImage(no-repeat,center,contain); 
+                    }
+                    p {
+                        font-family: $titles-font;
+                        font-size: 20px;
+                        font-weight: 500;
+                        color: black;
+                        background-color: $golden;
+                        padding: 5px 10px;
+                        border-radius: 8px;
+                        border: solid 1px black;
+                    }
+                }
+            }
+        }
+        .hipatia {
+            background-image: url('../assets/hpatia.jpeg');
+        }       
+        .ada {
+            background-image: url('../assets/ada-lovelace.jpg');
+        }
+        .marie {
+            background-image: url('../assets/marie-lavoisier.jpg');
+        }
+        .emmy {
+            background-image: url('../assets/emmy-noether.jpg');
+        }
+        .lise {
+            background-image: url('../assets/retrato-de-lise-meitner.jpg');
+        }
+        .hedy {
+            background-image: url('../assets/Hedy_Lamarr.jpg');
+        }
+        .katy {
+            background-image: url('../assets/Katherine_Johnson.jpg');
+        }
+        .rachel {
+            background-image: url('../assets/rachel-carson.webp');
+        }
+        .rita {
+            background-image: url('../assets/rita-levi-montalcini.jpg');
+        }
+        .dorothy {
+            background-image: url('../assets/D.-C.-Hodgkin2.jpg');
+        }
+        .alexandra {
+            background-image: url('../assets/Alexandra_Olaya-Castro.jpg');
+        }
+        .woman-data {
+            @include flexCenter(row,center,start); 
+            flex-wrap: wrap;
+            .quote {
+                width: 100%;
+                font-size: 22px;
+                font-weight: 700;
+                margin-bottom: 40px;
+                :nth-child(1) {
+                    font-family: $quote-font;
+                    text-align: center;
+                }
+                :nth-child(2){
+                    text-align: center;
+                }
+            }
+            .woman-biography {
+                width: 70%;        
+                p {
+                    font-family: $paragraph-font;
+                    font-size: 22px;
+                    font-weight: 400;
+                    text-align: justify;
+                    color: black; 
+                }    
+            }
+            .woman-picture {
+                @include backImage(no-repeat,center,contain); 
+                width: 25%;
+                height: 300px;
+                display: inline-block;
+            }
+        } 
+    }
+    footer {
+        background-color: $secondary-color;
+        padding: 10px 40px;
+        font-family: $paragraph-font;
+        color: $dark-color;
+        @include flexCenter(row,space-around,center); 
+        div {
+            width: 30%; 
+            @include flexCenter(row,space-evenly,center); 
+            a {
+                span {
+                    width: 30px; 
+                    height: 30px;
+                    display: flex;
+                    @include backImage(no-repeat,center,contain); 
+                    cursor: pointer;
+                }
+                .github {
+                    background-image: url('../assets/icons/github.png');
+                }
+                .mail {
+                    background-image: url('../assets/icons/mail.png');
+                }
+                .instagram {
+                    background-image: url('../assets/icons/instagram.png');
+                }   
+            }
+        }
+    }
+}
+
+/* Estilos para teléfonos celulares en sentido vertical */
+@media only screen and (max-width: 799px) {  
+  }
+  
+  /* Estilos para tabletas o portátiles sencillos */
+  @media only screen and (min-width: 800px) and (max-width: 1200px) {
+    body {
+        header {
+            background-color: $principal-color;
+            width: 100vw;
+            height: fit-content;
+            nav {
+                @include flexCenter(row,space-between,center); 
+                padding: 20px 40px;
+                .web-logo {
+                    width: 190px;
+                    height: 140px;
+                    display: flex;
+                    span {
+                        width: 180px;
+                        height: 130px;
+                        background-image: url('../assets/logo_mujeres_rectangular.jpg');
+                        @include backImage(no-repeat,center,cover); 
+                        cursor: pointer;
+                    }
+                }
+                div {
+                    padding: 0 8px;
+                    button {
+                        font-family: $titles-font;
+                        font-weight: bolder;
+                        font-size: 16px;
+                        padding: 4px 8px;
+                        border-radius: 12px;
+                        border: none;
+                        margin-left: 4px;
+                        background-color: $light-color;
+                        a {
+                            text-decoration: none;
+                            color: $dark-color;
+                        }
+                        &:hover {
+                            background-color: $dark-color;
+                            a {
+                                color: $light-color;
+                            }
+                        }
+                    }
+                    .selected {
+                        background-color: $dark-color;
+                        a {
+                            color: $light-color;
+                        }
+                    }
+                }
+                .burger-menu {
+                   display: none;
+                }
+            }  
+        }
+        main {
+            padding: 20px 40px;
+            h1 {
+                font-family: $titles-font;
+                font-size: 30px;
+                font-weight: bolder;
+                text-align: center;
+                margin-bottom: 20px;
+                color: $dark-color;
+            }
+    
+            h2 {
+                font-family: $titles-font;
+                font-size: 26px;
+                font-weight: 600;
+                text-align: center;
+                color: $principal-color; 
+            }
+            
+            h3 {
+                font-family: $titles-font;
+                font-size: 24px;
+                font-weight: 500;
+                text-align: left;
+                color: $secondary-color; 
+            }
+    
+            ul {
+                li {
+                    margin-bottom: 20px; /* Espacio entre cada elemento */
+                    line-height: 1.6; /* Altura de línea */
+                    font-family: $paragraph-font;
+                    font-size: 22px;
+                    /* Estilos para los nombres */
+                    strong {
+                        font-weight: bold; /* Negrita */
+                        font-family: $paragraph-font;
+                        font-size: 22px;
+                        text-align: left;
+                    }
+                }
+            }
+    
+            .introduction {
+                p {
+                    font-family: $paragraph-font;
+                    font-size: 22px;
+                    font-weight: 400;
+                    text-align: justify;
+                } 
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+            .women-container {
+                margin: 20px 0;
+                ::-webkit-scrollbar {
+                    height: 10px;
+                    border-radius: 50px;
+                }
+                ::-webkit-scrollbar-track {
+                    background-color: lightgray;
+                    border-radius: 50px;
+                }
+    
+                ::-webkit-scrollbar-thumb {
+                    background-color: $secondary-color ;
+                    border-radius: 50px;
+                }
+                ::-webkit-scrollbar-thumb:hover {
+                    background-color :green;
+                } 
+                .gallery-container {
+                    width: 100%;
+                    height: 650px;
+                    overflow-x: auto;
+                    white-space: nowrap; 
+                    @include flexCenter(row,space-between,center);  
+                    .gallery-item {
+                        @include flexCenter(column,start,center);
+                        width: 520px ;
+                        height: 550px;
+                        padding: 16px 16px 4px 16px;
+                        margin: 0 20px;
+                        border: 10px solid $golden; // Borde dorado de 10px de ancho
+                        border-radius: 20px; // Borde redondeado
+                        text-decoration: none;
+                        cursor: pointer;
+                        span {
+                            display: flex;
+                            width: 500px;
+                            height: 500px;
+                            @include backImage(no-repeat,center,contain); 
+                        }
+                        p {
+                            font-family: $titles-font;
+                            font-size: 20px;
+                            font-weight: 500;
+                            color: black;
+                            background-color: $golden;
+                            padding: 5px 10px;
+                            border-radius: 8px;
+                            border: solid 1px black;
+                        }
+                    }
+                }
+            }
+            .hipatia {
+                background-image: url('../assets/hpatia.jpeg');
+            }       
+            .ada {
+                background-image: url('../assets/ada-lovelace.jpg');
+            }
+            .marie {
+                background-image: url('../assets/marie-lavoisier.jpg');
+            }
+            .emmy {
+                background-image: url('../assets/emmy-noether.jpg');
+            }
+            .lise {
+                background-image: url('../assets/retrato-de-lise-meitner.jpg');
+            }
+            .hedy {
+                background-image: url('../assets/Hedy_Lamarr.jpg');
+            }
+            .katy {
+                background-image: url('../assets/Katherine_Johnson.jpg');
+            }
+            .rachel {
+                background-image: url('../assets/rachel-carson.webp');
+            }
+            .rita {
+                background-image: url('../assets/rita-levi-montalcini.jpg');
+            }
+            .dorothy {
+                background-image: url('../assets/D.-C.-Hodgkin2.jpg');
+            }
+            .alexandra {
+                background-image: url('../assets/Alexandra_Olaya-Castro.jpg');
+            }
+            .woman-data {
+                @include flexCenter(row,center,start); 
+                flex-wrap: wrap;
+                .quote {
+                    width: 100%;
+                    font-size: 22px;
+                    font-weight: 700;
+                    margin-bottom: 40px;
+                    :nth-child(1) {
+                        font-family: $quote-font;
+                        text-align: center;
+                    }
+                    :nth-child(2){
+                        text-align: center;
+                    }
+                }
+                .woman-biography {
+                    width: 70%;        
+                    p {
+                        font-family: $paragraph-font;
+                        font-size: 22px;
+                        font-weight: 400;
+                        text-align: justify;
+                        color: black; 
+                    }    
+                }
+                .woman-picture {
+                    @include backImage(no-repeat,center,contain); 
+                    width: 25%;
+                    height: 300px;
+                    display: inline-block;
+                }
+            } 
+        }
+        footer {
+            background-color: $secondary-color;
+            padding: 10px 40px;
+            font-family: $paragraph-font;
+            color: $dark-color;
+            @include flexCenter(row,space-around,center); 
+            div {
+                width: 30%; 
+                @include flexCenter(row,space-evenly,center); 
+                a {
+                    span {
+                        width: 30px; 
+                        height: 30px;
+                        display: flex;
+                        @include backImage(no-repeat,center,contain); 
+                        cursor: pointer;
+                    }
+                    .github {
+                        background-image: url('../assets/icons/github.png');
+                    }
+                    .mail {
+                        background-image: url('../assets/icons/mail.png');
+                    }
+                    .instagram {
+                        background-image: url('../assets/icons/instagram.png');
+                    }   
+                }
+            }
+        }
+    }
+  }
+  
+  /* Estilos para pantallas de escritorio */
+  @media only screen and (min-width: 1201px) {
+    body {
+        header {
+            background-color: $principal-color;
+            width: 100vw;
+            height: fit-content;
+            nav {
+                @include flexCenter(row,space-between,center); 
+                padding: 20px 40px;
+                .web-logo {
+                    width: 190px;
+                    height: 140px;
+                    display: flex;
+                    span {
+                        width: 180px;
+                        height: 130px;
+                        background-image: url('../assets/logo_mujeres_rectangular.jpg');
+                        @include backImage(no-repeat,center,cover); 
+                        cursor: pointer;
+                    }
+                }
+                div {
+                    padding: 0 8px;
+                    button {
+                        font-family: $titles-font;
+                        font-weight: bolder;
+                        font-size: 16px;
+                        padding: 4px 8px;
+                        border-radius: 12px;
+                        border: none;
+                        margin-left: 4px;
+                        background-color: $light-color;
+                        a {
+                            text-decoration: none;
+                            color: $dark-color;
+                        }
+                        &:hover {
+                            background-color: $dark-color;
+                            a {
+                                color: $light-color;
+                            }
+                        }
+                    }
+                    .selected {
+                        background-color: $dark-color;
+                        a {
+                            color: $light-color;
+                        }
+                    }
+                }
+                .burger-menu {
+                   display: none;
+                }
+            }  
+        }
+        main {
+            padding: 20px 40px;
+            h1 {
+                font-family: $titles-font;
+                font-size: 30px;
+                font-weight: bolder;
+                text-align: center;
+                margin-bottom: 20px;
+                color: $dark-color;
+            }
+    
+            h2 {
+                font-family: $titles-font;
+                font-size: 26px;
+                font-weight: 600;
+                text-align: center;
+                color: $principal-color; 
+            }
+            
+            h3 {
+                font-family: $titles-font;
+                font-size: 24px;
+                font-weight: 500;
+                text-align: left;
+                color: $secondary-color; 
+            }
+    
+            ul {
+                li {
+                    margin-bottom: 20px; /* Espacio entre cada elemento */
+                    line-height: 1.6; /* Altura de línea */
+                    font-family: $paragraph-font;
+                    font-size: 22px;
+                    /* Estilos para los nombres */
+                    strong {
+                        font-weight: bold; /* Negrita */
+                        font-family: $paragraph-font;
+                        font-size: 22px;
+                        text-align: left;
+                    }
+                }
+            }
+    
+            .introduction {
+                p {
+                    font-family: $paragraph-font;
+                    font-size: 22px;
+                    font-weight: 400;
+                    text-align: justify;
+                } 
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+            .women-container {
+                margin: 20px 0;
+                ::-webkit-scrollbar {
+                    height: 10px;
+                    border-radius: 50px;
+                }
+                ::-webkit-scrollbar-track {
+                    background-color: lightgray;
+                    border-radius: 50px;
+                }
+    
+                ::-webkit-scrollbar-thumb {
+                    background-color: $secondary-color ;
+                    border-radius: 50px;
+                }
+                ::-webkit-scrollbar-thumb:hover {
+                    background-color :green;
+                } 
+                .gallery-container {
+                    width: 100%;
+                    height: 650px;
+                    overflow-x: auto;
+                    white-space: nowrap; 
+                    @include flexCenter(row,space-between,center);  
+                    .gallery-item {
+                        @include flexCenter(column,start,center);
+                        width: 520px ;
+                        height: 550px;
+                        padding: 16px 16px 4px 16px;
+                        margin: 0 20px;
+                        border: 10px solid $golden; // Borde dorado de 10px de ancho
+                        border-radius: 20px; // Borde redondeado
+                        text-decoration: none;
+                        cursor: pointer;
+                        span {
+                            display: flex;
+                            width: 500px;
+                            height: 500px;
+                            @include backImage(no-repeat,center,contain); 
+                        }
+                        p {
+                            font-family: $titles-font;
+                            font-size: 20px;
+                            font-weight: 500;
+                            color: black;
+                            background-color: $golden;
+                            padding: 5px 10px;
+                            border-radius: 8px;
+                            border: solid 1px black;
+                        }
+                    }
+                }
+            }
+            .hipatia {
+                background-image: url('../assets/hpatia.jpeg');
+            }       
+            .ada {
+                background-image: url('../assets/ada-lovelace.jpg');
+            }
+            .marie {
+                background-image: url('../assets/marie-lavoisier.jpg');
+            }
+            .emmy {
+                background-image: url('../assets/emmy-noether.jpg');
+            }
+            .lise {
+                background-image: url('../assets/retrato-de-lise-meitner.jpg');
+            }
+            .hedy {
+                background-image: url('../assets/Hedy_Lamarr.jpg');
+            }
+            .katy {
+                background-image: url('../assets/Katherine_Johnson.jpg');
+            }
+            .rachel {
+                background-image: url('../assets/rachel-carson.webp');
+            }
+            .rita {
+                background-image: url('../assets/rita-levi-montalcini.jpg');
+            }
+            .dorothy {
+                background-image: url('../assets/D.-C.-Hodgkin2.jpg');
+            }
+            .alexandra {
+                background-image: url('../assets/Alexandra_Olaya-Castro.jpg');
+            }
+            .woman-data {
+                @include flexCenter(row,center,start); 
+                flex-wrap: wrap;
+                .quote {
+                    width: 100%;
+                    font-size: 22px;
+                    font-weight: 700;
+                    margin-bottom: 40px;
+                    :nth-child(1) {
+                        font-family: $quote-font;
+                        text-align: center;
+                    }
+                    :nth-child(2){
+                        text-align: center;
+                    }
+                }
+                .woman-biography {
+                    width: 70%;        
+                    p {
+                        font-family: $paragraph-font;
+                        font-size: 22px;
+                        font-weight: 400;
+                        text-align: justify;
+                        color: black; 
+                    }    
+                }
+                .woman-picture {
+                    @include backImage(no-repeat,center,contain); 
+                    width: 25%;
+                    height: 300px;
+                    display: inline-block;
+                }
+            } 
+        }
+        footer {
+            background-color: $secondary-color;
+            padding: 10px 40px;
+            font-family: $paragraph-font;
+            color: $dark-color;
+            @include flexCenter(row,space-around,center); 
+            div {
+                width: 30%; 
+                @include flexCenter(row,space-evenly,center); 
+                a {
+                    span {
+                        width: 30px; 
+                        height: 30px;
+                        display: flex;
+                        @include backImage(no-repeat,center,contain); 
+                        cursor: pointer;
+                    }
+                    .github {
+                        background-image: url('../assets/icons/github.png');
+                    }
+                    .mail {
+                        background-image: url('../assets/icons/mail.png');
+                    }
+                    .instagram {
+                        background-image: url('../assets/icons/instagram.png');
+                    }   
+                }
+            }
+        }
+    }
+   
+
+  }
+  
