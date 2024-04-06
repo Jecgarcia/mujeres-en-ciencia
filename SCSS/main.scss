@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); 
 
+//Declaración de mixin para flex
 @mixin flexCenter ($direction, $justify, $align) {
     display: flex;
     flex-direction: $direction;
@@ -9,50 +10,60 @@
     align-items: $align;
 }
 
+//Declaración de mixin para background de imagenes
 @mixin backImage ($repeat, $position, $size) {
     background-position: $position; 
     background-repeat: $repeat; 
     background-size: $size
 }
 
+//Declaración de variables para colores y textos 
 $principal-color: #967aa1;
 $secondary-color: #aaa1c8; 
 $light-color: #f6f6f6; 
 $dark-color: #192a51; 
 $golden: #DAA520; 
+$black: #000; 
+$white: #FFF; 
 $titles-font: "Roboto Mono", monospace; 
 $paragraph-font: "Roboto", sans-serif;
 $quote-font: "Courgette", cursive; 
 
+//Fondo del html
 html {
     background-color: $light-color;
 }
 
+//Estilo general para todas las cajas
 body {
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
+    //Estilos generales para el header de todos los tamaños
     header {
         background-color: $principal-color;
         width: 100vw;
         height: fit-content;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        //Estilos generales para el nav de todos los tamaños
         nav {
             @include flexCenter(row,space-between,center); 
             padding: 20px 40px;
             .web-logo {
-                width: 190px;
-                height: 140px;
-                display: flex;
+                //Implementación logo con background de un span
                 span {
-                    width: 180px;
-                    height: 130px;
+                    display: flex;
                     background-image: url('../assets/logo_mujeres_rectangular.jpg');
                     @include backImage(no-repeat,center,cover); 
                     cursor: pointer;
                 }
             }
+            //Estilos generales del div contenedor de los botones de navegación
             div {
                 padding: 0 8px;
+                //Estilos generales de los botones de navegación
                 button {
                     font-family: $titles-font;
                     font-weight: bolder;
@@ -80,26 +91,28 @@ body {
                     }
                 }
             }
-            .burger-menu {
-                width: 50px;
-                height: 50px;
-                background-image: url('../assets/icons/burger-menu.png');
-                @include backImage(no-repeat,center,cover); 
-                display: flex;
+            //Ocultación del componente que permite el menu hamburguesa con CSS para pantallas que no son mobile
+            #toggle {
+                display: none;
+            }
+            
+            label[for="toggle"] {
+                display: none;
             }
         }  
     }
     main {
-        padding: 20px 40px;
+        padding: 10px 20px;
+        //Estilos de todos los titulos de cada página
         h1 {
+            margin-top: 20px;
             font-family: $titles-font;
             font-size: 30px;
             font-weight: bolder;
             text-align: center;
-            margin-bottom: 20px;
             color: $dark-color;
         }
-
+        //Estilos de todos los subtitulos de cada página
         h2 {
             font-family: $titles-font;
             font-size: 26px;
@@ -107,7 +120,7 @@ body {
             text-align: center;
             color: $principal-color; 
         }
-        
+        //Estilos de todos los subtitulos secundarios de cada página
         h3 {
             font-family: $titles-font;
             font-size: 24px;
@@ -115,13 +128,14 @@ body {
             text-align: left;
             color: $secondary-color; 
         }
-
+        //Estilos de todos las listas secundarios de cada página
         ul {
             li {
                 margin-bottom: 20px; /* Espacio entre cada elemento */
                 line-height: 1.6; /* Altura de línea */
                 font-family: $paragraph-font;
                 font-size: 22px;
+                overflow-wrap: break-word; //Para que los links no generen un overflow horizontal 
                 /* Estilos para los nombres */
                 strong {
                     font-weight: bold; /* Negrita */
@@ -140,63 +154,53 @@ body {
                 text-align: justify;
             } 
             img {
-                display: block;
                 margin: 0 auto;
+                width: 90%;
+                margin-bottom: 16px;
             }
         }
         .women-container {
-            margin: 20px 0;
-            ::-webkit-scrollbar {
-                height: 10px;
-                border-radius: 50px;
-            }
-            ::-webkit-scrollbar-track {
-                background-color: lightgray;
-                border-radius: 50px;
-            }
-
-            ::-webkit-scrollbar-thumb {
-                background-color: $secondary-color ;
-                border-radius: 50px;
-            }
-            ::-webkit-scrollbar-thumb:hover {
-                background-color :green;
-            } 
+            //Galeria de mujeres con scroll horizontal 
             .gallery-container {
                 width: 100%;
-                height: 650px;
-                overflow-x: auto;
+                height: 400px;
+                overflow-x: scroll;
+                scroll-behavior: contain;
+                scroll-snap-type: x proximity;
                 white-space: nowrap; 
-                @include flexCenter(row,space-between,center);  
+                @include flexCenter(row,space-between,start);
+                //Estilos para cuadro de cada mujer
                 .gallery-item {
                     @include flexCenter(column,start,center);
-                    width: 520px ;
-                    height: 550px;
-                    padding: 16px 16px 4px 16px;
+                    scroll-snap-align: center;
+                    width: 300px ;
+                    height: 350px;
+                    padding: 8px 8px 2px 8px;
                     margin: 0 20px;
-                    border: 10px solid $golden; // Borde dorado de 10px de ancho
+                    border: 8px solid $golden; // Borde dorado para simular cuadro
                     border-radius: 20px; // Borde redondeado
                     text-decoration: none;
                     cursor: pointer;
                     span {
                         display: flex;
-                        width: 500px;
-                        height: 500px;
+                        width: 400px;
+                        height: 400px;
                         @include backImage(no-repeat,center,contain); 
                     }
                     p {
                         font-family: $titles-font;
-                        font-size: 20px;
+                        font-size: 16px;
                         font-weight: 500;
                         color: black;
                         background-color: $golden;
-                        padding: 5px 10px;
+                        padding: 2px 6px;
                         border-radius: 8px;
                         border: solid 1px black;
                     }
                 }
             }
         }
+        //Fotos de cada mujer
         .hipatia {
             background-image: url('../assets/hpatia.jpeg');
         }       
@@ -230,6 +234,7 @@ body {
         .alexandra {
             background-image: url('../assets/Alexandra_Olaya-Castro.jpg');
         }
+        //Formato de la pagina de cada mujer
         .woman-data {
             @include flexCenter(row,center,start); 
             flex-wrap: wrap;
@@ -246,8 +251,7 @@ body {
                     text-align: center;
                 }
             }
-            .woman-biography {
-                width: 70%;        
+            .woman-biography {        
                 p {
                     font-family: $paragraph-font;
                     font-size: 22px;
@@ -258,12 +262,12 @@ body {
             }
             .woman-picture {
                 @include backImage(no-repeat,center,contain); 
-                width: 25%;
                 height: 300px;
                 display: inline-block;
             }
         } 
     }
+    //Estilos del footer
     footer {
         background-color: $secondary-color;
         padding: 10px 40px;
@@ -294,536 +298,133 @@ body {
         }
     }
 }
-
+/*Media queries para los tres breakpints, aquí va lo que requiere estilos extra para la adaptación a cada tamaño*/
 /* Estilos para teléfonos celulares en sentido vertical */
-@media only screen and (max-width: 799px) {  
-  }
-  
-  /* Estilos para tabletas o portátiles sencillos */
-  @media only screen and (min-width: 800px) and (max-width: 1200px) {
+@media screen and (max-width: 799px) {  
     body {
         header {
-            background-color: $principal-color;
-            width: 100vw;
-            height: fit-content;
             nav {
-                @include flexCenter(row,space-between,center); 
-                padding: 20px 40px;
+                transition: left 0.3s ease;
+                //Tamaño de logo para mobile
                 .web-logo {
-                    width: 190px;
-                    height: 140px;
-                    display: flex;
                     span {
-                        width: 180px;
-                        height: 130px;
-                        background-image: url('../assets/logo_mujeres_rectangular.jpg');
-                        @include backImage(no-repeat,center,cover); 
-                        cursor: pointer;
+                        width: 120px;
+                        height: 90px;
                     }
                 }
+                //Estilos de contenedor de botones de navegacion en mobile
                 div {
-                    padding: 0 8px;
-                    button {
-                        font-family: $titles-font;
-                        font-weight: bolder;
-                        font-size: 16px;
-                        padding: 4px 8px;
-                        border-radius: 12px;
-                        border: none;
-                        margin-left: 4px;
-                        background-color: $light-color;
-                        a {
-                            text-decoration: none;
-                            color: $dark-color;
-                        }
-                        &:hover {
-                            background-color: $dark-color;
-                            a {
-                                color: $light-color;
-                            }
-                        }
-                    }
-                    .selected {
-                        background-color: $dark-color;
-                        a {
-                            color: $light-color;
-                        }
-                    }
+                    @include flexCenter(column,space-around,right); 
+                    background-color: $white;
+                    height: 250px;
+                    position: fixed;
+                    right: -320px;
+                    top: 100px;
+                    transition: left 0.3s ease;
                 }
-                .burger-menu {
-                   display: none;
-                }
-            }  
-        }
-        main {
-            padding: 20px 40px;
-            h1 {
-                font-family: $titles-font;
-                font-size: 30px;
-                font-weight: bolder;
-                text-align: center;
-                margin-bottom: 20px;
-                color: $dark-color;
-            }
-    
-            h2 {
-                font-family: $titles-font;
-                font-size: 26px;
-                font-weight: 600;
-                text-align: center;
-                color: $principal-color; 
-            }
-            
-            h3 {
-                font-family: $titles-font;
-                font-size: 24px;
-                font-weight: 500;
-                text-align: left;
-                color: $secondary-color; 
-            }
-    
-            ul {
-                li {
-                    margin-bottom: 20px; /* Espacio entre cada elemento */
-                    line-height: 1.6; /* Altura de línea */
-                    font-family: $paragraph-font;
-                    font-size: 22px;
-                    /* Estilos para los nombres */
-                    strong {
-                        font-weight: bold; /* Negrita */
-                        font-family: $paragraph-font;
-                        font-size: 22px;
-                        text-align: left;
-                    }
-                }
-            }
-    
-            .introduction {
-                p {
-                    font-family: $paragraph-font;
-                    font-size: 22px;
-                    font-weight: 400;
-                    text-align: justify;
-                } 
-                img {
-                    display: block;
-                    margin: 0 auto;
-                }
-            }
-            .women-container {
-                margin: 20px 0;
-                ::-webkit-scrollbar {
-                    height: 10px;
-                    border-radius: 50px;
-                }
-                ::-webkit-scrollbar-track {
-                    background-color: lightgray;
-                    border-radius: 50px;
-                }
-    
-                ::-webkit-scrollbar-thumb {
-                    background-color: $secondary-color ;
-                    border-radius: 50px;
-                }
-                ::-webkit-scrollbar-thumb:hover {
-                    background-color :green;
-                } 
-                .gallery-container {
-                    width: 100%;
-                    height: 650px;
-                    overflow-x: auto;
-                    white-space: nowrap; 
-                    @include flexCenter(row,space-between,center);  
-                    .gallery-item {
-                        @include flexCenter(column,start,center);
-                        width: 520px ;
-                        height: 550px;
-                        padding: 16px 16px 4px 16px;
-                        margin: 0 20px;
-                        border: 10px solid $golden; // Borde dorado de 10px de ancho
-                        border-radius: 20px; // Borde redondeado
-                        text-decoration: none;
-                        cursor: pointer;
-                        span {
-                            display: flex;
-                            width: 500px;
-                            height: 500px;
-                            @include backImage(no-repeat,center,contain); 
-                        }
-                        p {
-                            font-family: $titles-font;
-                            font-size: 20px;
-                            font-weight: 500;
-                            color: black;
-                            background-color: $golden;
-                            padding: 5px 10px;
-                            border-radius: 8px;
-                            border: solid 1px black;
-                        }
-                    }
-                }
-            }
-            .hipatia {
-                background-image: url('../assets/hpatia.jpeg');
-            }       
-            .ada {
-                background-image: url('../assets/ada-lovelace.jpg');
-            }
-            .marie {
-                background-image: url('../assets/marie-lavoisier.jpg');
-            }
-            .emmy {
-                background-image: url('../assets/emmy-noether.jpg');
-            }
-            .lise {
-                background-image: url('../assets/retrato-de-lise-meitner.jpg');
-            }
-            .hedy {
-                background-image: url('../assets/Hedy_Lamarr.jpg');
-            }
-            .katy {
-                background-image: url('../assets/Katherine_Johnson.jpg');
-            }
-            .rachel {
-                background-image: url('../assets/rachel-carson.webp');
-            }
-            .rita {
-                background-image: url('../assets/rita-levi-montalcini.jpg');
-            }
-            .dorothy {
-                background-image: url('../assets/D.-C.-Hodgkin2.jpg');
-            }
-            .alexandra {
-                background-image: url('../assets/Alexandra_Olaya-Castro.jpg');
-            }
-            .woman-data {
-                @include flexCenter(row,center,start); 
-                flex-wrap: wrap;
-                .quote {
-                    width: 100%;
-                    font-size: 22px;
-                    font-weight: 700;
-                    margin-bottom: 40px;
-                    :nth-child(1) {
-                        font-family: $quote-font;
-                        text-align: center;
-                    }
-                    :nth-child(2){
-                        text-align: center;
-                    }
-                }
-                .woman-biography {
-                    width: 70%;        
-                    p {
-                        font-family: $paragraph-font;
-                        font-size: 22px;
-                        font-weight: 400;
-                        text-align: justify;
-                        color: black; 
-                    }    
-                }
-                .woman-picture {
-                    @include backImage(no-repeat,center,contain); 
-                    width: 25%;
-                    height: 300px;
-                    display: inline-block;
-                }
-            } 
-        }
-        footer {
-            background-color: $secondary-color;
-            padding: 10px 40px;
-            font-family: $paragraph-font;
-            color: $dark-color;
-            @include flexCenter(row,space-around,center); 
-            div {
-                width: 30%; 
-                @include flexCenter(row,space-evenly,center); 
-                a {
-                    span {
-                        width: 30px; 
-                        height: 30px;
-                        display: flex;
-                        @include backImage(no-repeat,center,contain); 
-                        cursor: pointer;
-                    }
-                    .github {
-                        background-image: url('../assets/icons/github.png');
-                    }
-                    .mail {
-                        background-image: url('../assets/icons/mail.png');
-                    }
-                    .instagram {
-                        background-image: url('../assets/icons/instagram.png');
-                    }   
-                }
-            }
-        }
-    }
-  }
-  
-  /* Estilos para pantallas de escritorio */
-  @media only screen and (min-width: 1201px) {
-    body {
-        header {
-            background-color: $principal-color;
-            width: 100vw;
-            height: fit-content;
-            nav {
-                @include flexCenter(row,space-between,center); 
-                padding: 20px 40px;
-                .web-logo {
-                    width: 190px;
-                    height: 140px;
+                //Mecanismo para menu hamburguesa con CSS 
+                label[for="toggle"] {
                     display: flex;
-                    span {
-                        width: 180px;
-                        height: 130px;
-                        background-image: url('../assets/logo_mujeres_rectangular.jpg');
-                        @include backImage(no-repeat,center,cover); 
-                        cursor: pointer;
-                    }
+                    color: $white;
+                    background-color: $black;
+                    padding: 8px;
+                    cursor: pointer;
+                    z-index: 999;
                 }
-                div {
-                    padding: 0 8px;
-                    button {
-                        font-family: $titles-font;
-                        font-weight: bolder;
-                        font-size: 16px;
-                        padding: 4px 8px;
-                        border-radius: 12px;
-                        border: none;
-                        margin-left: 4px;
-                        background-color: $light-color;
-                        a {
-                            text-decoration: none;
-                            color: $dark-color;
-                        }
-                        &:hover {
-                            background-color: $dark-color;
-                            a {
-                                color: $light-color;
-                            }
-                        }
-                    }
-                    .selected {
-                        background-color: $dark-color;
-                        a {
-                            color: $light-color;
-                        }
-                    }
-                }
-                .burger-menu {
-                   display: none;
-                }
-            }  
-        }
-        main {
-            padding: 20px 40px;
-            h1 {
-                font-family: $titles-font;
-                font-size: 30px;
-                font-weight: bolder;
-                text-align: center;
-                margin-bottom: 20px;
-                color: $dark-color;
-            }
-    
-            h2 {
-                font-family: $titles-font;
-                font-size: 26px;
-                font-weight: 600;
-                text-align: center;
-                color: $principal-color; 
-            }
-            
-            h3 {
-                font-family: $titles-font;
-                font-size: 24px;
-                font-weight: 500;
-                text-align: left;
-                color: $secondary-color; 
-            }
-    
-            ul {
-                li {
-                    margin-bottom: 20px; /* Espacio entre cada elemento */
-                    line-height: 1.6; /* Altura de línea */
-                    font-family: $paragraph-font;
-                    font-size: 22px;
-                    /* Estilos para los nombres */
-                    strong {
-                        font-weight: bold; /* Negrita */
-                        font-family: $paragraph-font;
-                        font-size: 22px;
-                        text-align: left;
-                    }
-                }
-            }
-    
-            .introduction {
-                p {
-                    font-family: $paragraph-font;
-                    font-size: 22px;
-                    font-weight: 400;
-                    text-align: justify;
-                } 
-                img {
-                    display: block;
-                    margin: 0 auto;
-                }
-            }
-            .women-container {
-                margin: 20px 0;
-                ::-webkit-scrollbar {
-                    height: 10px;
-                    border-radius: 50px;
-                }
-                ::-webkit-scrollbar-track {
-                    background-color: lightgray;
-                    border-radius: 50px;
-                }
-    
-                ::-webkit-scrollbar-thumb {
-                    background-color: $secondary-color ;
-                    border-radius: 50px;
-                }
-                ::-webkit-scrollbar-thumb:hover {
-                    background-color :green;
-                } 
-                .gallery-container {
-                    width: 100%;
-                    height: 650px;
-                    overflow-x: auto;
-                    white-space: nowrap; 
-                    @include flexCenter(row,space-between,center);  
-                    .gallery-item {
-                        @include flexCenter(column,start,center);
-                        width: 520px ;
-                        height: 550px;
-                        padding: 16px 16px 4px 16px;
-                        margin: 0 20px;
-                        border: 10px solid $golden; // Borde dorado de 10px de ancho
-                        border-radius: 20px; // Borde redondeado
-                        text-decoration: none;
-                        cursor: pointer;
-                        span {
-                            display: flex;
-                            width: 500px;
-                            height: 500px;
-                            @include backImage(no-repeat,center,contain); 
-                        }
-                        p {
-                            font-family: $titles-font;
-                            font-size: 20px;
-                            font-weight: 500;
-                            color: black;
-                            background-color: $golden;
-                            padding: 5px 10px;
-                            border-radius: 8px;
-                            border: solid 1px black;
-                        }
-                    }
-                }
-            }
-            .hipatia {
-                background-image: url('../assets/hpatia.jpeg');
-            }       
-            .ada {
-                background-image: url('../assets/ada-lovelace.jpg');
-            }
-            .marie {
-                background-image: url('../assets/marie-lavoisier.jpg');
-            }
-            .emmy {
-                background-image: url('../assets/emmy-noether.jpg');
-            }
-            .lise {
-                background-image: url('../assets/retrato-de-lise-meitner.jpg');
-            }
-            .hedy {
-                background-image: url('../assets/Hedy_Lamarr.jpg');
-            }
-            .katy {
-                background-image: url('../assets/Katherine_Johnson.jpg');
-            }
-            .rachel {
-                background-image: url('../assets/rachel-carson.webp');
-            }
-            .rita {
-                background-image: url('../assets/rita-levi-montalcini.jpg');
-            }
-            .dorothy {
-                background-image: url('../assets/D.-C.-Hodgkin2.jpg');
-            }
-            .alexandra {
-                background-image: url('../assets/Alexandra_Olaya-Castro.jpg');
-            }
-            .woman-data {
-                @include flexCenter(row,center,start); 
-                flex-wrap: wrap;
-                .quote {
-                    width: 100%;
-                    font-size: 22px;
-                    font-weight: 700;
-                    margin-bottom: 40px;
-                    :nth-child(1) {
-                        font-family: $quote-font;
-                        text-align: center;
-                    }
-                    :nth-child(2){
-                        text-align: center;
-                    }
-                }
-                .woman-biography {
-                    width: 70%;        
-                    p {
-                        font-family: $paragraph-font;
-                        font-size: 22px;
-                        font-weight: 400;
-                        text-align: justify;
-                        color: black; 
-                    }    
-                }
-                .woman-picture {
-                    @include backImage(no-repeat,center,contain); 
-                    width: 25%;
-                    height: 300px;
-                    display: inline-block;
-                }
-            } 
-        }
-        footer {
-            background-color: $secondary-color;
-            padding: 10px 40px;
-            font-family: $paragraph-font;
-            color: $dark-color;
-            @include flexCenter(row,space-around,center); 
-            div {
-                width: 30%; 
-                @include flexCenter(row,space-evenly,center); 
-                a {
-                    span {
-                        width: 30px; 
-                        height: 30px;
-                        display: flex;
-                        @include backImage(no-repeat,center,contain); 
-                        cursor: pointer;
-                    }
-                    .github {
-                        background-image: url('../assets/icons/github.png');
-                    }
-                    .mail {
-                        background-image: url('../assets/icons/mail.png');
-                    }
-                    .instagram {
-                        background-image: url('../assets/icons/instagram.png');
-                    }   
-                }
-            }
-        }
-    }
-   
 
-  }
-  
+                #toggle:checked ~ div {
+                    right: 0;
+                }
+            }  
+        }
+        main {  
+            width: 90%;
+            margin: 120px auto 0; 
+            .woman-data {
+                //Distribucion de info de cada mujer en su pagina mobile
+                .woman-biography {
+                    width: 100%;         
+                }
+                .woman-picture {
+                    width: 45%;
+                    margin: 0 auto;
+                }
+            } 
+        }
+    }
+}
+
+/* Estilos para tabletas o portátiles sencillos (800px - 1200px de ancho) */
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+    body {
+        header {
+            nav {
+                //Estilos nav tablet
+                @include flexCenter(row,space-around,center); 
+                flex-wrap: nowrap;
+                .web-logo {
+                    //Tamaño logo tablet
+                    span {
+                        width: 140px;
+                        height: 110px;
+                    }
+                }
+                //Estilos navegacion tablet
+                div {
+                    width: 80%; 
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+                    grid-template-rows: repeat(2, auto); /* Dos filas de altura automática */
+                    gap: 10px; /* Espacio entre los elementos */ 
+                    button {
+                        height: 45px;
+                        font-size: 14px;
+                    }
+                }
+            }  
+        }
+        main {  
+            width: 90%;
+            margin: 140px auto 0; 
+            .woman-data {
+                .woman-biography {
+                    width: 100%;         
+                }
+                .woman-picture {
+                    width: 45%;
+                    margin: 0 auto;
+                }
+            } 
+        }
+    }
+}
+
+/* Estilos para pantallas de escritorio (>1200px de ancho) */
+@media screen and (min-width: 1201px) {
+    body {
+        header {
+            nav {
+                //Tamaño logo pc
+                .web-logo {
+                    span {
+                        width: 180px;
+                        height: 130px;
+                    }
+                }
+            }  
+        }
+        main {  
+            width: 94%;
+            margin: 160px auto 0;
+            //Distribución info mujer cada página
+            .woman-data {
+                .woman-biography {
+                    width: 70%;         
+                }
+                .woman-picture {
+                    width: 25%;
+                }
+            } 
+        }
+    }
+}
