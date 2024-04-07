@@ -222,7 +222,6 @@ body main .woman-data .quote {
   width: 100%;
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 40px;
 }
 body main .woman-data .quote :nth-child(1) {
   font-family: "Courgette", cursive;
@@ -325,6 +324,9 @@ body footer div a .instagram {
     width: 90%;
     margin: 120px auto 0;
   }
+  body main .woman-data .quote {
+    margin-bottom: 10px;
+  }
   body main .woman-data .woman-biography {
     /*Distribucion de info de cada mujer en su pagina mobile*/
     width: 100%;
@@ -366,6 +368,9 @@ body footer div a .instagram {
     width: 90%;
     margin: 140px auto 0;
   }
+  body main .woman-data .quote {
+    margin-bottom: 20px;
+  }
   body main .woman-data .woman-biography {
     width: 100%;
   }
@@ -384,6 +389,9 @@ body footer div a .instagram {
   body main {
     width: 94%;
     margin: 160px auto 0;
+  }
+  body main .woman-data .quote {
+    margin-bottom: 40px;
   }
   body main .woman-data .woman-biography {
     /*Distribución info mujer cada página*/

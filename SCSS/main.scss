@@ -231,7 +231,6 @@ body {
                 width: 100%;
                 font-size: 22px;
                 font-weight: 700;
-                margin-bottom: 40px;
                 :nth-child(1) {
                     font-family: $quote-font;
                     text-align: center;
@@ -334,6 +333,9 @@ body {
             width: 90%;
             margin: 120px auto 0; 
             .woman-data {
+                .quote {
+                    margin-bottom: 10px;
+                }
                 .woman-biography {
                     /*Distribucion de info de cada mujer en su pagina mobile*/
                     width: 100%;         
@@ -381,6 +383,9 @@ body {
             width: 90%;
             margin: 140px auto 0; 
             .woman-data {
+                .quote {
+                    margin-bottom: 20px;
+                }
                 .woman-biography {
                     width: 100%;         
                 }
@@ -411,6 +416,9 @@ body {
             width: 94%;
             margin: 160px auto 0;
             .woman-data {
+                .quote {
+                    margin-bottom: 40px;
+                }
                 .woman-biography {
                     /*Distribución info mujer cada página*/
                     width: 70%;         
