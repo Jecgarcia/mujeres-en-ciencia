@@ -112,6 +112,13 @@ body main ul li strong {
   font-size: 22px;
   text-align: left;
 }
+body main .introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+}
 body main .introduction p {
   font-family: "Roboto", sans-serif;
   font-size: 22px;
@@ -119,7 +126,6 @@ body main .introduction p {
   text-align: justify;
 }
 body main .introduction img {
-  margin: 0 auto;
   width: 90%;
   margin-bottom: 16px;
 }
@@ -300,6 +306,9 @@ body footer div a .instagram {
     top: 100px;
     transition: left 0.3s ease;
   }
+  body header nav div button {
+    width: 100%;
+  }
   body header nav label[for=toggle] {
     /*Mecanismo para menu hamburguesa con CSS*/
     display: flex;
@@ -349,6 +358,7 @@ body footer div a .instagram {
     gap: 10px; /* Espacio entre los elementos */
   }
   body header nav div button {
+    width: 100%;
     height: 45px;
     font-size: 14px;
   }
