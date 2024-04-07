@@ -3,15 +3,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Courgette&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 html {
+  /*Fondo del html*/
   background-color: #f6f6f6;
 }
 
 body {
+  /*Estilo general para todas las cajas*/
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body header {
+  /*Estilos generales para el header de todos los tamaños*/
   background-color: #967aa1;
   width: 100vw;
   height: -moz-fit-content;
@@ -21,6 +24,7 @@ body header {
   z-index: 1000;
 }
 body header nav {
+  /*Estilos generales para el nav de todos los tamaños*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -28,6 +32,7 @@ body header nav {
   padding: 20px 40px;
 }
 body header nav .web-logo span {
+  /*Implementación logo con background de un span*/
   display: flex;
   background-image: url("../assets/logo_mujeres_rectangular.jpg");
   background-position: center;
@@ -36,9 +41,11 @@ body header nav .web-logo span {
   cursor: pointer;
 }
 body header nav div {
+  /*Estilos generales del div contenedor de los botones de navegación*/
   padding: 0 8px;
 }
 body header nav div button {
+  /*Estilos generales de los botones de navegación*/
   font-family: "Roboto Mono", monospace;
   font-weight: bolder;
   font-size: 16px;
@@ -65,6 +72,7 @@ body header nav div .selected a {
   color: #f6f6f6;
 }
 body header nav #toggle {
+  /*Ocultación del componente que permite el menu hamburguesa con CSS para pantallas que no son mobile*/
   display: none;
 }
 body header nav label[for=toggle] {
@@ -74,6 +82,7 @@ body main {
   padding: 10px 20px;
 }
 body main h1 {
+  /*Estilos de todos los titulos de cada página*/
   margin-top: 20px;
   font-family: "Roboto Mono", monospace;
   font-size: 30px;
@@ -82,6 +91,7 @@ body main h1 {
   color: #192a51;
 }
 body main h2 {
+  /*Estilos de todos los subtitulos de cada página*/
   font-family: "Roboto Mono", monospace;
   font-size: 26px;
   font-weight: 600;
@@ -89,6 +99,7 @@ body main h2 {
   color: #967aa1;
 }
 body main h3 {
+  /*Estilos de todos los subtitulos secundarios de cada página*/
   font-family: "Roboto Mono", monospace;
   font-size: 24px;
   font-weight: 500;
@@ -100,10 +111,10 @@ body main ul li {
   line-height: 1.6; /* Altura de línea */
   font-family: "Roboto", sans-serif;
   font-size: 22px;
-  overflow-wrap: break-word;
-  /* Estilos para los nombres */
+  overflow-wrap: break-word; /*Para que los links no generen un overflow horizontal*/
 }
 body main ul li strong {
+  /* Estilos para los nombres */
   font-weight: bold; /* Negrita */
   font-family: "Roboto", sans-serif;
   font-size: 22px;
@@ -121,6 +132,7 @@ body main .introduction img {
   margin-bottom: 16px;
 }
 body main .women-container .gallery-container {
+  /*Galeria de mujeres con scroll horizontal*/
   width: 100%;
   height: 400px;
   overflow-x: scroll;
@@ -133,6 +145,7 @@ body main .women-container .gallery-container {
   align-items: start;
 }
 body main .women-container .gallery-container .gallery-item {
+  /*Estilos para cuadro de cada mujer*/
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -142,8 +155,8 @@ body main .women-container .gallery-container .gallery-item {
   height: 350px;
   padding: 8px 8px 2px 8px;
   margin: 0 20px;
-  border: 8px solid #DAA520;
-  border-radius: 20px;
+  border: 8px solid #DAA520; /* Borde dorado para simular cuadro*/
+  border-radius: 20px; /*Borde redondeado*/
   text-decoration: none;
   cursor: pointer;
 }
@@ -166,6 +179,7 @@ body main .women-container .gallery-container .gallery-item p {
   border: solid 1px black;
 }
 body main .hipatia {
+  /*Fotos de cada mujer*/
   background-image: url("../assets/hpatia.jpeg");
 }
 body main .ada {
@@ -199,6 +213,7 @@ body main .alexandra {
   background-image: url("../assets/Alexandra_Olaya-Castro.jpg");
 }
 body main .woman-data {
+  /*Formato de estilos para la pagina de cada mujer*/
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -233,6 +248,7 @@ body main .woman-data .woman-picture {
   display: inline-block;
 }
 body footer {
+  /*Estilos del footer*/
   background-color: #aaa1c8;
   padding: 10px 40px;
   font-family: "Roboto", sans-serif;
@@ -275,10 +291,12 @@ body footer div a .instagram {
     transition: left 0.3s ease;
   }
   body header nav .web-logo span {
+    /*Tamaño de logo para mobile*/
     width: 120px;
     height: 90px;
   }
   body header nav div {
+    /*Estilos de contenedor de botones de navegacion en mobile*/
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -291,6 +309,7 @@ body footer div a .instagram {
     transition: left 0.3s ease;
   }
   body header nav label[for=toggle] {
+    /*Mecanismo para menu hamburguesa con CSS*/
     display: flex;
     color: #FFF;
     background-color: #000;
@@ -306,6 +325,7 @@ body footer div a .instagram {
     margin: 120px auto 0;
   }
   body main .woman-data .woman-biography {
+    /*Distribucion de info de cada mujer en su pagina mobile*/
     width: 100%;
   }
   body main .woman-data .woman-picture {
@@ -316,6 +336,7 @@ body footer div a .instagram {
 /* Estilos para tabletas o portátiles sencillos (800px - 1200px de ancho) */
 @media screen and (min-width: 800px) and (max-width: 1200px) {
   body header nav {
+    /*Estilos nav tablet*/
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -323,10 +344,12 @@ body footer div a .instagram {
     flex-wrap: nowrap;
   }
   body header nav .web-logo span {
+    /*Tamaño logo tablet*/
     width: 140px;
     height: 110px;
   }
   body header nav div {
+    /*Estilos navegacion tablet*/
     width: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
@@ -352,6 +375,7 @@ body footer div a .instagram {
 /* Estilos para pantallas de escritorio (>1200px de ancho) */
 @media screen and (min-width: 1201px) {
   body header nav .web-logo span {
+    /*Tamaño logo pc*/
     width: 180px;
     height: 130px;
   }
@@ -360,6 +384,7 @@ body footer div a .instagram {
     margin: 160px auto 0;
   }
   body main .woman-data .woman-biography {
+    /*Distribución info mujer cada página*/
     width: 70%;
   }
   body main .woman-data .woman-picture {
