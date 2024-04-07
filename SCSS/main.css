@@ -55,20 +55,12 @@ body header nav div button {
   margin-left: 4px;
   background-color: #f6f6f6;
 }
-body header nav div button a {
-  text-decoration: none;
-  color: #192a51;
-}
 body header nav div button:hover {
   background-color: #192a51;
-}
-body header nav div button:hover a {
   color: #f6f6f6;
 }
 body header nav div .selected {
   background-color: #192a51;
-}
-body header nav div .selected a {
   color: #f6f6f6;
 }
 body header nav #toggle {
@@ -300,7 +292,7 @@ body footer div a .instagram {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: right;
+    align-items: center;
     background-color: #FFF;
     height: 250px;
     position: fixed;

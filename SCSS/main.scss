@@ -32,7 +32,6 @@ html {
     background-color: $light-color;
 }
 
-
 body {
     /*Estilo general para todas las cajas*/
     margin: 0; 
@@ -72,22 +71,14 @@ body {
                     border: none;
                     margin-left: 4px;
                     background-color: $light-color;
-                    a {
-                        text-decoration: none;
-                        color: $dark-color;
-                    }
                     &:hover {
                         background-color: $dark-color;
-                        a {
-                            color: $light-color;
-                        }
+                        color: $light-color;
                     }
                 }
                 .selected {
                     background-color: $dark-color;
-                    a {
-                        color: $light-color;
-                    }
+                    color: $light-color;
                 }
             }
             #toggle {
@@ -313,7 +304,7 @@ body {
                 }
                 div {
                     /*Estilos de contenedor de botones de navegacion en mobile*/
-                    @include flexCenter(column,space-around,right); 
+                    @include flexCenter(column,space-around,center); 
                     background-color: $white;
                     height: 250px;
                     position: fixed;
