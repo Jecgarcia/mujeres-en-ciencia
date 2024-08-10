@@ -54,6 +54,7 @@ body header nav div button {
   border: none;
   margin-left: 4px;
   background-color: #f6f6f6;
+  cursor: pointer;
 }
 body header nav div button:hover {
   background-color: #192a51;

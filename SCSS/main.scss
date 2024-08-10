@@ -71,6 +71,7 @@ body {
                     border: none;
                     margin-left: 4px;
                     background-color: $light-color;
+                    cursor: pointer;
                     &:hover {
                         background-color: $dark-color;
                         color: $light-color;

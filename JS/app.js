@@ -9,7 +9,7 @@ const countriesOfInterest = [
 
 // Cargar los datos GeoJSON completos que permiten el renderizado de un globo terraqueo
 json('../JSON/custom.geo.json').then(data => {
-    console.log(data); // Verifica que los datos se carguen correctamente
+    console.log(data); 
     init(data);
 });
 
@@ -40,7 +40,7 @@ const drawGlobe = () => {
     projection = geoOrthographic()
         .fitSize([svgWidth, svgHeight], geojson)
         .translate([(svgWidth + margin) / 2, (svgHeight + margin) / 2])
-        .scale(svgWidth / 3);  // Ajusta la escala para reducir el tamaño del globo
+        .scale(svgWidth / 3); 
 
     path = geoPath().projection(projection);
 
