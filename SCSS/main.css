@@ -93,7 +93,7 @@ body main h2 {
 body main h3 {
   /*Estilos de todos los subtitulos secundarios de cada página*/
   font-family: "Roboto Mono", monospace;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   text-align: left;
   color: #aaa1c8;
@@ -112,18 +112,18 @@ body main ul li strong {
   font-size: 22px;
   text-align: left;
 }
+body main p {
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  text-align: justify;
+}
 body main .introduction {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
   flex-wrap: wrap;
-}
-body main .introduction p {
-  font-family: "Roboto", sans-serif;
-  font-size: 22px;
-  font-weight: 400;
-  text-align: justify;
 }
 body main .introduction img {
   width: 90%;
@@ -176,39 +176,151 @@ body main .women-container .gallery-container .gallery-item p {
   border-radius: 8px;
   border: solid 1px black;
 }
+body main .image-container {
+  display: flex;
+  justify-content: center;
+}
 body main .hipatia {
   /*Fotos de cada mujer*/
   background-image: url("../assets/hpatia.jpeg");
 }
+body main .hipatia_estudiando {
+  background-image: url("../assets/hipatia_estudiando.jpg");
+}
+body main .hipatia_astronoma {
+  background-image: url("../assets/hipatia.webp");
+}
+body main .hipatia_muerte {
+  background-image: url("../assets/death-of-philosopher-hypatia-in-alexandria.jpeg");
+}
+body main .hipatia_legado {
+  background-image: url("../assets/Hipatia-de-Alejandria.webp");
+}
 body main .ada {
   background-image: url("../assets/ada-lovelace.jpg");
+}
+body main .ada_2 {
+  background-image: url("../assets/ada_profesion.jpg");
+}
+body main .algoritmo {
+  background-image: url("../assets/algoritmo.png");
 }
 body main .marie {
   background-image: url("../assets/marie-lavoisier.jpg");
 }
+body main .marie_antoine {
+  background-image: url("../assets/marie_antoine.jpg");
+}
+body main .marie_divulgacion {
+  background-image: url("../assets/marie_divulgacion.jpg");
+}
+body main .marie_muerte {
+  background-image: url("../assets/marie_muerte.avif");
+}
 body main .emmy {
   background-image: url("../assets/emmy-noether.jpg");
+}
+body main .algebra {
+  background-image: url("../assets/algebra.jpg");
+}
+body main .teorema {
+  background-image: url("../assets/teorema.jpg");
 }
 body main .lise {
   background-image: url("../assets/retrato-de-lise-meitner.jpg");
 }
+body main .lise_explicando {
+  background-image: url("../assets/lise_explicando.jpg");
+}
+body main .lise_experimentando {
+  background-image: url("../assets/lise_experimentando.png");
+}
+body main .lise_otto {
+  background-image: url("../assets/lise_otto.jpg");
+}
+body main .lise_elemento {
+  background-image: url("../assets/lise_elemento.jpg");
+}
 body main .hedy {
   background-image: url("../assets/Hedy_Lamarr.jpg");
+}
+body main .actriz {
+  background-image: url("../assets/actriz.jpg");
+}
+body main .inventora {
+  background-image: url("../assets/inventora.jpeg");
+}
+body main .estrella {
+  background-image: url("../assets/estrella.jpg");
+}
+body main .doodle {
+  background-image: url("../assets/doodle.jpg");
 }
 body main .katy {
   background-image: url("../assets/Katherine_Johnson.jpg");
 }
+body main .kathy_estudiando {
+  background-image: url("../assets/katherine-johnson.jpeg");
+}
+body main .kathy_calculando {
+  background-image: url("../assets/katherine-johnson-calculando.jpg");
+}
+body main .kathy_reconocimiento {
+  background-image: url("../assets/kathy_medalla.webp");
+}
 body main .rachel {
   background-image: url("../assets/rachel-carson.webp");
+}
+body main .rachel_investiga {
+  background-image: url("../assets/rachel_investigando.jpg");
+}
+body main .rachel_estudia {
+  background-image: url("../assets/rachel_libros.jpeg");
+}
+body main .rachel_reconocimiento {
+  background-image: url("../assets/rachel_reconocimiento.jpg");
 }
 body main .rita {
   background-image: url("../assets/rita-levi-montalcini.jpg");
 }
+body main .rita_investiga {
+  background-image: url("../assets/rita-investiga.jpg");
+}
+body main .rita_inspira {
+  background-image: url("../assets/rita-habla.jpg");
+}
+body main .rita_nobel {
+  background-image: url("../assets/rita-premio.jpg");
+}
 body main .dorothy {
   background-image: url("../assets/D.-C.-Hodgkin2.jpg");
 }
+body main .dorothy_2 {
+  background-image: url("../assets/dorothy2.png");
+}
+body main .dorothy_3 {
+  background-image: url("../assets/Professor_Dorothy_Hodgkin.jpg");
+}
+body main .dorothy_4 {
+  background-image: url("../assets/dorothy-hodgkin-y-stephen-hawkings.jpg");
+}
+body main .cristalografia {
+  background-image: url("../assets/cristalografia.png");
+}
 body main .alexandra {
   background-image: url("../assets/Alexandra_Olaya-Castro.jpg");
+}
+body main .alexandra_2 {
+  background-image: url("../assets/alexandra_2.jpg");
+}
+body main .alexandra_3 {
+  background-image: url("../assets/alexandra_3.avif");
+}
+body main .alexandra_premio {
+  background-image: url("../assets/premio_alexandra.jpg");
+}
+body main .alexandra_educacion {
+  background-image: url("../assets/alexa_educacion.jpg");
 }
 body main .woman-data {
   /*Formato de estilos para la pagina de cada mujer*/
@@ -243,6 +355,61 @@ body main .woman-data .woman-picture {
   background-size: contain;
   height: 300px;
   display: inline-block;
+  margin: 0 auto;
+}
+body main .accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 8px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  transition: 0.4s;
+  border-radius: 16px;
+  margin-bottom: 8px;
+}
+body main .active, body main .accordion:hover {
+  background-color: #ccc;
+}
+body main .accordion:after {
+  content: "+";
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+body main .active:after {
+  content: "−";
+}
+body main .panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+body #map {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+body #map #mapSpace {
+  width: 50%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+}
+body .country {
+  transition: fill 0.2s;
 }
 body footer {
   /*Estilos del footer*/

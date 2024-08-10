@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./SCSS/main.css">
+    <title>Países de nacimiento de cientificas</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="web-logo" href="./index.html"><span></span></a>
+            <label for="toggle">&#9776;</label>
+            <input type="checkbox" id="toggle">
+            <div>
+                <a href="./index.html"><button>Inicio</button></a>
+                <a href="./mujeres.html"><button>Mujeres</button></a>
+                <a href="./Contexto.html"><button>Contexto histórico y cultural</button></a>
+                <a href="./Logros.html"><button>Logros científicos</button></a>
+                <a href="./Retos.html"><button>Retos a superar</button></a>
+                <a href="./Mapa.html"><button class="selected">Paises donde nacieron</button></a>
+                <a href="./referencias.html"><button>Referencias</button></a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Países en los que nacieron las científicas revisadas en este proyecto</h1>
+        <div id="map">
+            <div id="mapSpace"></div>
+            <div id="mapInfo"></div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js "></script>
+    <script src="./JS/app.js"></script>
+</body>
+</html>
