@@ -401,8 +401,7 @@ body #map {
 }
 body #map #mapSpace {
   width: 50%;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 1000px;
   display: flex;
   flex-direction: row;
   justify-content: start;

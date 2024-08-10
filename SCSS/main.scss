@@ -413,7 +413,7 @@ body {
         height: fit-content;
         #mapSpace {
             width: 50%;
-            height: fit-content;  
+            height: 1000px;  
             @include flexCenter(row,start,start); 
         }
     }
