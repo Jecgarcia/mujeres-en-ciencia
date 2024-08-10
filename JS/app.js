@@ -3,8 +3,14 @@ const mapSpace = document.getElementById('mapSpace');
 
 // Definir los países de interés
 const countriesOfInterest = [
-    "United Kingdom", "Colombia", "Egypt", "Germany", "Austria",
-    "United States", "France", "Italy"
+    "United Kingdom", 
+    "Colombia", 
+    "Egypt", 
+    "Germany", 
+    "Austria",
+    "United States of America", 
+    "France", 
+    "Italy"
 ];
 
 // Cargar los datos GeoJSON completos que permiten el renderizado de un globo terraqueo
@@ -133,7 +139,7 @@ const countryInfo = {
     "Egypt": "Hipatia de Alejandria nació en Alejandria, Egipto entre el 355 y 370 d.C. y Dorothy Crowfoot Nació en 1910 en El Cairo, Egipto, hija de un arqueólogo británico.",
     "Germany": "Emmy Noether nació en 1882 en Erlangen, Alemania,",
     "Austria": "Hedy Lamarr nació en Viena, Austria en 1914 y Lise Meitner nació en la misma ciudad en 1878",
-    "United States": "Katherine Johnson nació en 1918 en White Sulphur Springs, Virginia Occidental y Rachel Carson Carson en 1907 en Springdale, Pensilvania (Estados Unidos) ",
+    "United States of America": "Katherine Johnson nació en 1918 en White Sulphur Springs, Virginia Occidental y Rachel Carson Carson en 1907 en Springdale, Pensilvania (Estados Unidos) ",
     "France": "Marie Lavoisier nació en París, Francia en 1758",
     "Italy": "Rita Levi nació en Turin, Italia en 1909"
 };
@@ -145,7 +151,7 @@ const countryTranslations = {
     "Egypt": "Egipto",
     "Germany": "Alemania",
     "Austria": "Austria",
-    "United States": "Estados Unidos",
+    "United States of America": "Estados Unidos",
     "France": "Francia",
     "Italy": "Italia",
 };
