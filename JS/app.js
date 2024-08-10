@@ -69,19 +69,45 @@ const drawGraticule = () => {
 const createHoverEffect = () => {
     globe.selectAll('.country')
         .on('mouseover', function(event, d) {
-            d3.select(this).style('fill', 'orange');
+            const countryName = d.properties.name;
+            const mapInfo = document.getElementById('mapInfo');
 
-            if (countriesOfInterest.includes(d.properties.name)) {
-                d3.select(this).style('fill', 'purple');
-                d3.select(this).style('stroke', 'white');
+            // Obtener el nombre traducido del país o usar el original si no está en el objeto
+            const translatedName = countryTranslations[countryName] || countryName;
+
+            if (countriesOfInterest.includes(countryName)) {
+                // Cambiar el color y borde del país si está en countriesOfInterest
+                d3.select(this).style('fill', 'purple').style('stroke', 'white');
+
+                // Mostrar información específica del país junto con el nombre traducido
+                const info = countryInfo[countryName];
+                if (info) {
+                    mapInfo.innerText = `${translatedName}: ${info}`;
+                }
+            } else {
+                // Cambiar color a 'orange' para países que no están en la lista
+                d3.select(this).style('fill', 'orange').style('stroke', '#7f7a7a');
+
+                // Mostrar mensaje genérico para países que no están en la lista, usando el nombre traducido
+                mapInfo.innerText = `${translatedName}: Seguro muchas mujeres en ciencia espectaculares han nacido aquí, pero por ahora no hacen parte de este proyecto.`;
             }
         })
         .on('mouseout', function(event, d) {
-            d3.select(this).style('fill', function(d) {
-                return countriesOfInterest.includes(d.properties.name) ? "steelblue" : "#aaa1c8";
-            });
+            const countryName = d.properties.name;
+
+            if (countriesOfInterest.includes(countryName)) {
+                // Restaurar color original para países de interés
+                d3.select(this).style('fill', "steelblue").style('stroke', '#7f7a7a');
+            } else {
+                // Restaurar color original para países que no están en la lista
+                d3.select(this).style('fill', "#aaa1c8").style('stroke', '#7f7a7a');
+            }
+
+            // Limpiar el contenido del contenedor 'mapInfo' cuando se quita el hover
+            document.getElementById('mapInfo').innerText = '';
         });
 };
+
 
 const createDraggingEvents = () => {
     globe
@@ -110,4 +136,16 @@ const countryInfo = {
     "United States": "Katherine Johnson nació en 1918 en White Sulphur Springs, Virginia Occidental y Rachel Carson Carson en 1907 en Springdale, Pensilvania (Estados Unidos) ",
     "France": "Marie Lavoisier nació en París, Francia en 1758",
     "Italy": "Rita Levi nació en Turin, Italia en 1909"
+};
+
+//Nombre de los paises de interes (donde nacieron las cientificas) traducidos 
+const countryTranslations = {
+    "United Kingdom": "Reino Unido",
+    "Colombia": "Colombia",
+    "Egypt": "Egipto",
+    "Germany": "Alemania",
+    "Austria": "Austria",
+    "United States": "Estados Unidos",
+    "France": "Francia",
+    "Italy": "Italia",
 };
