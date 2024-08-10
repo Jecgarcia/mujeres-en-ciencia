@@ -408,10 +408,6 @@ body #map #mapSpace {
   justify-content: start;
   align-items: start;
 }
-body #map #mapSpace svg {
-  position: relative;
-  top: -150px;
-}
 body .country {
   transition: fill 0.2s;
 }

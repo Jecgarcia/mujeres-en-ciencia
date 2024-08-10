@@ -415,10 +415,6 @@ body {
             width: 50%;
             height: fit-content; 
             @include flexCenter(row,start,start); 
-            svg {
-                position: relative;
-                top: -150px;
-            }
         }
     }
     
