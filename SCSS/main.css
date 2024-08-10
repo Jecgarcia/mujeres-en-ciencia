@@ -401,11 +401,16 @@ body #map {
 }
 body #map #mapSpace {
   width: 50%;
-  height: 1000px;
+  height: -moz-fit-content;
+  height: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items: start;
+}
+body #map #mapSpace svg {
+  position: relative;
+  top: -150px;
 }
 body .country {
   transition: fill 0.2s;
